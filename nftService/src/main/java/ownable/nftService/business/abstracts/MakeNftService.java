@@ -9,4 +9,5 @@ import ownable.nftService.entities.concretes.MakeNFT;
 public interface MakeNftService {
 	DataResult<List<MakeNFT>> getAll();
 	Result insertInto(MakeNFT makeNFT);
+	Result delete(int codeOfAccount);
 }

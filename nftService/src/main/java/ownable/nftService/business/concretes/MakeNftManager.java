@@ -35,4 +35,10 @@ public class MakeNftManager implements MakeNftService {
 		return new SuccessResult("Product has been added");
 	}
 
+	@Override
+	public Result delete(int codeOfAccount) {
+		makeNftDao.deleteById(codeOfAccount);
+		return new SuccessResult("Product has been deleted");
+	}
+
 }
