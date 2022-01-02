@@ -41,4 +41,24 @@ public class MakeNftManager implements MakeNftService {
 		return new SuccessResult("Product has been deleted");
 	}
 
+	@Override
+	public Result update(MakeNFT makeNFT, int codeOfAccount) {
+		MakeNFT currentMakeNFT = makeNftDao.findById(codeOfAccount).orElseThrow(RuntimeException::new);
+		currentMakeNFT.setDescription(makeNFT.getDescription());
+		currentMakeNFT.setEmail(makeNFT.getEmail());
+		currentMakeNFT.setFirstName(makeNFT.getFirstName());
+		currentMakeNFT.setImage(makeNFT.getImage());
+		currentMakeNFT.setLastName(makeNFT.getLastName());
+		currentMakeNFT.setPassword(makeNFT.getPassword());
+		currentMakeNFT.setPhoneNumber(makeNFT.getPhoneNumber());
+		currentMakeNFT.setTokenName(makeNFT.getTokenName());
+		currentMakeNFT.setTypeOfAsset(makeNFT.getTypeOfAsset());
+		currentMakeNFT.setUserName(makeNFT.getUserName());
+		currentMakeNFT.setTypeOfAsset(makeNFT.getTypeOfAsset());
+		
+		makeNftDao.save(currentMakeNFT);
+		
+		return new SuccessResult("Product has been updated");
+	}
+
 }

@@ -10,4 +10,5 @@ public interface MakeNftService {
 	DataResult<List<MakeNFT>> getAll();
 	Result insertInto(MakeNFT makeNFT);
 	Result delete(int codeOfAccount);
+	Result update(MakeNFT makeNFT,int codeOfAccount);
 }

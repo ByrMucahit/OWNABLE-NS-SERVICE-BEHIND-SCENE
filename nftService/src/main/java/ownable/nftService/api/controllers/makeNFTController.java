@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,7 +40,12 @@ public class makeNFTController {
 	}
 	
 	@DeleteMapping("/delete")
-	public Result delelete(@RequestParam int codeOfAccount) {
+	public Result delete(@RequestParam int codeOfAccount) {
 		return this.makeNFTService.delete(codeOfAccount);
+	}
+	
+	@PutMapping("/edit")
+	public Result update(MakeNFT makeNFT, int codeOfAccount) {
+		return this.makeNFTService.update(makeNFT, codeOfAccount);
 	}
 }
